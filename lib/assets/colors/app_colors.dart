@@ -7,4 +7,6 @@ class AppColors {
   static const grey1 = Color(0xFFBDBDBD);
 
   static const grey0n5 = Color(0xFFF5F5F5);
+    static const dividerGrey = Color(0xFFEEEEEEEE);
+
 }

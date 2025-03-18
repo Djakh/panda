@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:panda/assets/colors/app_colors.dart';
 import 'package:panda/assets/constants/app_images.dart';
 import 'package:panda/assets/style.dart';
@@ -47,7 +46,9 @@ class _RegionsPageState extends State<RegionsPage> {
   }
 
   /// --- Widgets ---
-  Widget image(String image, {double? height, double? width}) => Image.asset(AppImages.search, height: height ?? 18, width: width ?? 18);
+
+  Widget image(String image, {double? height, double? width}) =>
+      Image.asset(AppImages.search, height: height ?? 18, width: width ?? 18);
 
   Widget get searchField => TextField(
       onChanged: _filterRegions,
@@ -60,29 +61,33 @@ class _RegionsPageState extends State<RegionsPage> {
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12.0), borderSide: BorderSide.none)));
 
   Widget regionItem(String region) => ListTile(
+      onTap: () {},
+      contentPadding: EdgeInsets.zero,
       title: Text(region, style: Style.bodyw4),
-      trailing: const Icon(Icons.arrow_forward_ios, size: 16),
-      onTap: () => print("Выбрано: $region"));
+      trailing: const Icon(Icons.arrow_forward_ios, color: AppColors.primary));
 
   Widget get regionList => Expanded(
       child: ListView.separated(
           itemCount: filteredRegions.length,
-          separatorBuilder: (_, __) => const Divider(),
+          separatorBuilder: (_, __) => const Divider(thickness: 1, color: AppColors.dividerGrey),
           itemBuilder: (_, index) => regionItem(filteredRegions[index])));
 
-  Widget get header => Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [searchField, const SizedBox(height: 16), Text("Выбрать область", style: Style.bodyw4), const SizedBox(height: 8)]);
-
   Widget get view => Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16.w),
-      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [const SizedBox(height: 16), header, regionList]));
+      padding: const EdgeInsets.symmetric(horizontal: 24),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        const SizedBox(height: 24),
+        searchField,
+        const SizedBox(height: 24),
+        Text("Выбрать область", style: Style.bodyw7),
+        regionList
+      ]));
 
   Widget get title => Text("Местоположение", style: Style.headlinew7);
 
-  Widget get backButtonAndTitle => Row(
-        children: [IconButton(icon: const Icon(Icons.arrow_back, color: Colors.black), onPressed: () => Navigator.pop(context)), title],
-      );
+  Widget get backButtonAndTitle => Row(children: [
+        IconButton(icon: const Icon(Icons.arrow_back, color: Colors.black), onPressed: () => Navigator.pop(context)),
+        title
+      ]);
 
   AppBar get appbar => AppBar(
       title: title,
@@ -93,5 +98,6 @@ class _RegionsPageState extends State<RegionsPage> {
       elevation: 0);
 
   @override
-  Widget build(BuildContext context) => Scaffold(backgroundColor: AppColors.white, appBar: appbar, body: SafeArea(child: view));
+  Widget build(BuildContext context) =>
+      Scaffold(backgroundColor: AppColors.white, appBar: appbar, body: SafeArea(child: view));
 }

@@ -49,7 +49,8 @@ class Style {
         Radius.circular(16.0),
       );
 
-  static BorderRadius get borderOnlyTop16 => const BorderRadius.only(topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0));
+  static BorderRadius get borderOnlyTop16 =>
+      const BorderRadius.only(topLeft: Radius.circular(16.0), topRight: Radius.circular(16.0));
 
   static BorderRadius get border14 => const BorderRadius.all(
         Radius.circular(14.0),
@@ -194,15 +195,28 @@ class Style {
   /// Typography
   static String get fontFamily => "Gilroy";
 
-  static TextStyle get headlinew7 =>
-      TextStyle(fontFamily: fontFamily, fontSize: 24 * SizeConfig.rw, height: 1, fontWeight: FontWeight.w700, color: AppColors.primary);
+  static TextStyle get headlinew7 => TextStyle(
+      fontFamily: fontFamily,
+      fontSize: 24 * SizeConfig.rw,
+      height: 1,
+      fontWeight: FontWeight.w700,
+      color: AppColors.primary);
 
-  static TextStyle get headlinew6 =>
-      TextStyle(fontFamily: fontFamily, fontSize: 24 * SizeConfig.rw, height: 1, fontWeight: FontWeight.w600, color: AppColors.primary);
+  static TextStyle get headlinew6 => TextStyle(
+      fontFamily: fontFamily,
+      fontSize: 24 * SizeConfig.rw,
+      height: 1,
+      fontWeight: FontWeight.w600,
+      color: AppColors.primary);
 
-  static TextStyle get bodyw4 => TextStyle(fontFamily: fontFamily, fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary);
+  static TextStyle get bodyw7 =>
+      TextStyle(fontFamily: fontFamily, fontSize: 16, fontWeight: FontWeight.w700, color: AppColors.primary);
 
-  static TextStyle get small3w4 => TextStyle(fontFamily: fontFamily, fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primary);
+  static TextStyle get bodyw4 =>
+      TextStyle(fontFamily: fontFamily, fontSize: 16, fontWeight: FontWeight.w400, color: AppColors.primary);
+
+  static TextStyle get small3w4 =>
+      TextStyle(fontFamily: fontFamily, fontSize: 14, fontWeight: FontWeight.w400, color: AppColors.primary);
 
   /// Dynamic typography
   static TextStyle bodyw4PrimaryOrw6White(bool isNotWhite) => TextStyle(
